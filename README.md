@@ -14,30 +14,17 @@ demo code
 	
 ```js
 
-import React, { useContext, useState } from 'react';
-import { FaBars } from 'react-icons/fa';
-import { FiLogOut } from 'react-icons/fi';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import logo from "../../assets/img/travel-logo.png";
-import { AuthContext } from '../../Contexts/AuthProvider';
 
 
 const Header = () => {
     const [isActive, setIsActive] = useState(false);
-    const navigate = useNavigate();
 
     const handleHumbagerMenu = event => {
         setIsActive(current => !current);
     }
-    const { user, logOut } = useContext(AuthContext);
 
-    const handleLogOut = () => {
-        logOut()
-        .then(() => {
-            navigate('/login')
-        })
-        .catch(error => console.error(error))
-    } 
 
     return (
         <div className="header">
